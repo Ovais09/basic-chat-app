@@ -9,6 +9,9 @@ const io = require('socket.io')(server, {
     }
 });
 
+const host = "0.0.0.0";
+const port = process.env.PORT || 3000;
+
 
 app.use(cors());
 app.use(express.json())
@@ -33,7 +36,7 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(3000, () => {
+server.listen(port, host, () => {
     console.log('Server is running on port 3000');
 })
 
